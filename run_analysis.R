@@ -2,9 +2,10 @@
 library(plyr)
 library(dplyr)
 
+
 ## CONSTANTS
-FILE_URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-ZIP_FILE <- "dataset.zip"
+
+# This script assumes the dataset has been unzipped in the working directory.
 DATASET_DIR <- "UCI HAR Dataset"
 
 FEATURE_FILE <- file.path(DATASET_DIR, "features.txt")
@@ -21,28 +22,8 @@ SUBJECT_TRAINING_FILE <- file.path(TRAINING_DIR, "subject_train.txt")
 X_TRAINING_FILE <- file.path(TRAINING_DIR, "X_train.txt");
 Y_TRAINING_FILE <- file.path(TRAINING_DIR, "y_train.txt");
 
-## HELPER FUNCTIONS
-download_file <- function (url, filename) {
-	if (file.exists(filename)) return();
-	
-	method = "auto"
-	if (.Platform$OS.type == "unix" & pmatch("https", url)) {
-		method = "curl"
-	}
 
-	download.file(url, filename, method)
-}
-
-unzip_file <- function (file) {
-	if(file.exists(DATASET_DIR)) return();
-	unzip(file)
-}
-
-
-## SCRIPT
-download_file(FILE_URL, ZIP_FILE)
-
-unzip_file(ZIP_FILE)
+## PROCESSING 
 
 # Read in feature data
 features <- read.table(FEATURE_FILE)
