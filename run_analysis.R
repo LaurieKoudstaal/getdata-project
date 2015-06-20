@@ -30,7 +30,7 @@ features <- read.table(FEATURE_FILE)
 head(features)
 colnames(features) <- c("index", "label")
 
-# Read in activity lables
+# Read in activity labels
 activities <- read.table(ACTIVITY_LABEL_FILE)
 colnames(activities) <- c("code", "label")
 
