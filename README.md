@@ -11,7 +11,8 @@ It is assumed that the script will be run in a directory in which the data set h
 
 RUN\_ANALYSIS.R STRUCTURE
 ------------------------
-Broadly, the file structure is: 
+Broadly, the file structure is:
+ 
 	1. load libraries, 
 	2. declare constants (mostly filenames), and 
 	3. perform processing.
