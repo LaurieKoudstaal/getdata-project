@@ -6,6 +6,7 @@ PROCESSING
 These data have been tidied from the data obtained from [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). Further information about the data source can be obtained there.
 
 The process of cleaning the data was as follows:
+
 1. Recombining the training and test data sets.
 2. Selection of only the mean and standard deviation of measurements.
 3. Combining with subject ID and activity.
