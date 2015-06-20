@@ -65,14 +65,16 @@ isMeanOrStdFeature = isStdFeature | isMeanFeature
 
 features <- features[isMeanOrStdFeature,]
 
-# Now select only those feature obeservations we want.
+# Now select only those feature observations we want.
 # Note: as a side effect of this operation, the observations are arranged in
 # the same order as the features.
 observations <- observations[,features$index]
 
-# Clean up the feature names
+# Clean up the feature names and add "mean" to them, to reflect they are means
 features$label <- gsub("()", "", features$label, fixed = TRUE)	
 features$label <- gsub("-", "_", features$label, fixed = TRUE)	
+features$label <- gsub("BodyBody", "Body", features$label, fixed = TRUE)
+features$label <- paste(features$label, "_avg", sep="")
 
 # Apply the feature names as our column names
 colnames(observations) <- features$label
@@ -84,8 +86,8 @@ observations$subject_id <- subject_ids$V1
 observations$activity <- join(activity_codes, activities, by="code")$label
 
 # Apply colMeans to the data (skipping the category data)
-output <- ddply(observations, .(subject_id, activity), function (df) {
+observations <- ddply(observations, .(subject_id, activity), function (df) {
 	colMeans(select(df, one_of(features$label)))
 }) 
 
-write.table(output, file="tidy-data.txt", row.names=FALSE)
+write.table(observations, file="tidy-data.txt", row.names=FALSE)
