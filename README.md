@@ -49,6 +49,7 @@ Finally, the data was written, as required to a file called "tidy-data.txt". For
 READING IN THE DATA
 -------------------
 You can read in and view the data using:
+
 		data <- read.table("tidy-data.txt", header = TRUE)
     		View(data)
 
