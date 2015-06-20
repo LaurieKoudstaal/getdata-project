@@ -13,9 +13,9 @@ RUN\_ANALYSIS.R STRUCTURE
 ------------------------
 Broadly, the file structure is:
  
-	1. load libraries, 
-	2. declare constants (mostly filenames), and 
-	3. perform processing.
+1. load libraries, 
+2. declare constants (mostly filenames), and 
+3. perform processing.
 
 
 PROCESSING
